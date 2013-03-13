@@ -44,22 +44,13 @@ class ArticleAdmin(admin.ModelAdmin):
             'fields': ('keywords', 'description',),
             'classes': ('collapse',)
         }),
-        ('Relationships', {
-            'fields': ('followup_for', 'related_articles'),
-            'classes': ('collapse',)
-        }),
         ('Scheduling', {'fields': ('publish_date', 'expiration_date')}),
-        ('AddThis Button Options', {
-            'fields': ('use_addthis_button', 'addthis_use_author', 'addthis_username'),
-            'classes': ('collapse',)
-        }),
         ('Advanced', {
             'fields': ('slug', 'is_active', 'login_required', 'sites'),
             'classes': ('collapse',)
         }),
     )
-
-    filter_horizontal = ('tags', 'followup_for', 'related_articles')
+    
     prepopulated_fields = {'slug': ('title',)}
 
     def tag_count(self, obj):
